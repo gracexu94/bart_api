@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-BartApi::Application.config.secret_token = '1776c5787d135373ef463a5bf40f2a1096b72c4d2676f48c5e760ee8a922a8241b202c8332e02a9487ffdeef151e2e822674ffe439f4020a1106a271e87871ff'
+BartApi::Application.config.secret_token = '7a85d36b4f02fcb24dedb6b3458bfe02f25ecf3222f8e62a8a3e80e14138272782f9ec231db8a9c6976ddfb43c01cacc7bb67e6b4f577128aa0d7522029b201c'
