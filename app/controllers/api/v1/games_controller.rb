@@ -13,7 +13,7 @@ module Api
 
       # GET /games/1
       def show
-        render json: Game.find(params[:id])
+        @game = Game.find(params[:id])
       end
 
       # POST /games

@@ -1,5 +1,5 @@
-json.game do	
-	json.id @game['id']
+json.game_data do	
+	json.id @game['id'] 
 	json.score @game['score']
 	json.min @game['min']
 	json.max @game['max']
