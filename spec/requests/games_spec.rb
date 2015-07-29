@@ -22,6 +22,7 @@ describe "Games API" do
       get "/api/v1/games/#{game.id}" 
 
       expect(response.status).to eq 200
+      puts response.body
       body = JSON.parse(response.body) 
       expect(body["game_data"]["turkID"]).to eq "TestGETID"
     end
@@ -57,6 +58,8 @@ describe "Games API" do
       }
 
       post "/api/v1/games", game_params, request_headers
+
+      puts response.body 
 
       expect(response.status).to eq 201 #created
       expect(Game.first.turkID).to eq "TESTPOST"
