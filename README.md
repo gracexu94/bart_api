@@ -10,25 +10,25 @@ Currently supported: GET (/api/v1/games or /api/v1/games/game_id) and POST (/api
 Stores game data (seed info, wins, mouseclicks, etc.) into a postgresql database. 
 Database currently supports (along with an automatically generated id and timestamp) the following.
 ```
- | Data Type     | Parameter Name   |
- | :----------:  | :--------------: |
- | integer       | score            |
- | integer       | min              |
- | integer       | max              | 
- | string        | turkID           |
- | boolean       | SLA              |
- | boolean       | avg              |
- | boolean       | norm             |
- | datetime      | timestart        | 
- | datetime      | timefinish       |
- | float         | duration         |
- | integer       | seed             |
- | string        | playerID         |
- | integer       | gamenumber       |
- | string        | scoreramp        |
- | integer array | limits           |
- | integer array | pushes           |
- | boolean array | cashed           |
+ | Parameter Name   | Data Type     |
+ | :--------------: | :----------:  |
+ | score            | integer       |
+ | min              | integer       |
+ | max              | integer       | 
+ | turkID           | string        |
+ | SLA              | boolean       |
+ | avg              | boolean       |
+ | norm             | boolean       |
+ | timestart        | datetime      | 
+ | timefinish       | datetime      |
+ | duration         | float         |
+ | seed             | integer       |
+ | playerID         | string        |
+ | gamenumber       | integer       |
+ | scoreramp        | string        |
+ | limits           | integer array |
+ | pushes           | integer array |
+ | cashed           | boolean array |
 ```
 If no value is specified the default is nil or an empty array. 
 
