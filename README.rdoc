@@ -1,2 +1,0 @@
-#BART API 
-An implementation of a simple Rails API to expose a database that will store game data. 

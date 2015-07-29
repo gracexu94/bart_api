@@ -1,28 +1,74 @@
-== README
+##BART API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple implementation of a JSON API in Rails. 
 
-Things you may want to cover:
+Basic authentication required. 
 
-* Ruby version
+##HOW TO USE 
 
-* System dependencies
+Currently supported: GET (/api/v1/games or /api/v1/games/game_id) and POST (/api/v1/games)   
+Stores game data (seed info, wins, mouseclicks, etc.) into a postgresql database. 
+Database currently supports (along with an automatically generated id and timestamp) the following.
+```
+ | Data Type     | Parameter Name   |
+ | :----------:  | :--------------: |
+ | integer       | score            |
+ | integer       | min              |
+ | integer       | max              | 
+ | string        | turkID           |
+ | boolean       | SLA              |
+ | boolean       | avg              |
+ | boolean       | norm             |
+ | datetime      | timestart        | 
+ | datetime      | timefinish       |
+ | float         | duration         |
+ | integer       | seed             |
+ | string        | playerID         |
+ | integer       | gamenumber       |
+ | string        | scoreramp        |
+ | integer array | limits           |
+ | integer array | pushes           |
+ | boolean array | cashed           |
+```
+If no value is specified the default is nil or an empty array. 
 
-* Configuration
+You can use a third party tool like [Postman](https://www.getpostman.com/) when making requests, or curL from the command line.
 
-* Database creation
+Example requests: 
+```
+curl -X GET http://localhost:3000/api/v1/games 
+```
+Returns a JSON object of all games and their data. 
 
-* Database initialization
+```
+curl -X GET http://localhost:3000/api/v1/games/1
+```
+Returns a JSON object containing the data of the game with id 1. 
 
-* How to run the test suite
+```
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "game":
+    { 
+      "score": 500, 
+      "min": 0, 
+      "max": 100, 
+      "turkID": "TESTPOST", 
+      "SLA": true, 
+      "avg": false, 
+      "norm": true, 
+      "timestart": "2015-07-27 17:53:02.834884", 
+      "timefinish": "2015-07-27 17:55:02.834884", 
+      "duration": 120.00, 
+      "seed": 15, 
+      "playerID": "TESTPLAYER1", 
+      "gamenumber": 1, 
+      "scoreramp": "TESTING", 
+      "limits": [0,1,2,3,4,5,6,7,8,9], 
+      "pushes": [0,1,2,3,4,5,6,7,8,9], 
+      "cashed": [true,true,false,false,true,true,false,false,true,true]
+    }
+}' 'http://localhost:3000/api/v1/games'
+```
+Returns a JSON object containing the newly created game. 
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
