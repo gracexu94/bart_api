@@ -21,7 +21,7 @@ module Api
         @game = Game.new(game_params)
 
         if @game.save
-          render json: @game, status: :created, location: @game
+          render json: @game, status: :created, location: "api/v1/games/#{@game.id}"
         else
           render json: @game.errors, status: :unprocessable_entity
         end
