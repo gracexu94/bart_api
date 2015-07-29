@@ -29,20 +29,22 @@ module Api
 
       # PATCH/PUT /games/1
       def update
-        @game = Game.find(params[:id])
+      #  @game = Game.find(params[:id])
 
-        if @game.update(game_params)
-          head :no_content
-        else
-          render json: @game.errors, status: :unprocessable_entity
-        end
+      #  if @game.update(game_params)
+      #    head :no_content
+      #  else
+      #    render json: @game.errors, status: :unprocessable_entity
+      #  end
+      render json: { message: 'PATCH/PUT requests currently not supported' }, status: :not_found
       end
 
       # DELETE /games/1
       def destroy
-        @game.destroy
+      #  @game.destroy
 
-        head :no_content
+      #  head :no_content
+      render json: { message: 'DELETE requests currently not supported' }, status: :not_found
       end
 
       private
@@ -52,7 +54,7 @@ module Api
         end
 
         def game_params
-          params.require(:game).permit(:score, :min, :max, :turkID, :SLA, :avg, :norm, :timestart, :timefinish, :duration, :seed, :playerID, :gamenumber, :scoreramp, :limits, :pushes, :cashed)
+          params.require(:game).permit(:score, :min, :max, :turkID, :SLA, :avg, :norm, :timestart, :timefinish, :duration, :seed, :playerID, :gamenumber, :scoreramp, limits: [], pushes: [], cashed: [])
         end
     end
   end
