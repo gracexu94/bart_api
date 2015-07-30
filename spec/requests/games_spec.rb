@@ -68,7 +68,7 @@ describe "Games API" do
   private 
     def get_basic_auth 
       user = "admin"
-      pw = "itsapayoffsecret"
+      pw = ENV["BART_API_PASSWORD"]
       ActionController::HttpAuthentication::Basic.encode_credentials user, pw
     end
 end

@@ -34,19 +34,19 @@ If no value is specified the default is nil or an empty array.
 
 You can use a third party tool like [Postman](https://www.getpostman.com/) when making requests, or curL from the command line.
 
-Example requests: 
+Example requests (with user and password being secret keys): 
 ```
-curl -X GET http://localhost:3000/api/v1/games 
+curl -X GET -u "user:password" http://localhost:3000/api/v1/games 
 ```
 Returns a JSON object of all games and their data. 
 
 ```
-curl -X GET http://localhost:3000/api/v1/games/1
+curl -X GET -u "user:password" http://localhost:3000/api/v1/games/1
 ```
 Returns a JSON object containing the data of the game with id 1. 
 
 ```
-curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+curl -X POST -u "user:password" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "game":
     { 
       "score": 500, 
