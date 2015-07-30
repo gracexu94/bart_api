@@ -1,13 +1,14 @@
 require "rails_helper"
 
 describe "Games API" do
+  include ActionController::HttpAuthentication::Basic::ControllerMethods
   describe "GET /games" do
     before do
       FactoryGirl.create(:game)
     end
 
     it "returns all the games and their data" do
-      get "/api/v1/games"
+      get "/api/v1/games", {}, { 'Authorization' => get_basic_auth }
 
       expect(response.status).to eq 200  
       body = JSON.parse(response.body) 
@@ -19,10 +20,9 @@ describe "Games API" do
     it "returns the requested game dataset" do
       game = FactoryGirl.create(:game, turkID: "TestGETID")
 
-      get "/api/v1/games/#{game.id}" 
+      get "/api/v1/games/#{game.id}", {}, { 'Authorization' => get_basic_auth }
 
       expect(response.status).to eq 200
-      puts response.body
       body = JSON.parse(response.body) 
       expect(body["game_data"]["turkID"]).to eq "TestGETID"
     end
@@ -54,15 +54,21 @@ describe "Games API" do
 
       request_headers = {
         "Accept" => "application/json",
-        "Content-Type" => "application/json"
+        "Content-Type" => "application/json",
+        'Authorization' => get_basic_auth
       }
 
       post "/api/v1/games", game_params, request_headers
-
-      puts response.body 
 
       expect(response.status).to eq 201 #created
       expect(Game.first.turkID).to eq "TESTPOST"
     end
   end
+
+  private 
+    def get_basic_auth 
+      user = "admin"
+      pw = "itsapayoffsecret"
+      ActionController::HttpAuthentication::Basic.encode_credentials user, pw
+    end
 end

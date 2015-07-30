@@ -1,7 +1,15 @@
 module Api
   module V1
     class GamesController < ApplicationController
+      include ActionController::HttpAuthentication::Basic::ControllerMethods
       before_action :set_game, only: [:show, :update, :destroy]
+      before_filter :authenticate
+
+      def authenticate 
+        authenticate_or_request_with_http_basic do |username, password| 
+          username == "admin" && password == "itsapayoffsecret" #ENV["BART_API_PASSWORD"]
+        end
+      end
 
       # GET /games
       def index
