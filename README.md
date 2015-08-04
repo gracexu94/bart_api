@@ -25,10 +25,11 @@ Database currently supports (along with an automatically generated id and timest
  | seed             | integer       |
  | playerID         | string        |
  | gamenumber       | integer       |
- | scoreramp        | string        |
+ | ramp             | string        |
  | limits           | integer array |
  | pushes           | integer array |
  | cashed           | boolean array |
+ | stamps           | integer array |
 ```
 If no value is specified the default is nil or an empty array. 
 
@@ -62,7 +63,7 @@ curl -X POST -u "user:password" -H "Accept: application/json" -H "Content-Type: 
       "seed": 15, 
       "playerID": "TESTPLAYER1", 
       "gamenumber": 1, 
-      "scoreramp": "TESTING", 
+      "ramp": "TESTING", 
       "limits": [0,1,2,3,4,5,6,7,8,9], 
       "pushes": [0,1,2,3,4,5,6,7,8,9], 
       "cashed": [true,true,false,false,true,true,false,false,true,true]

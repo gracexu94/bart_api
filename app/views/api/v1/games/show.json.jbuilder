@@ -13,8 +13,9 @@ json.game_data do
 	json.seed @game['seed']
 	json.playerID @game['playerID']
 	json.gamenumber @game['gamenumber']
-	json.scoreramp @game['scoreramp']
+	json.ramp @game['ramp']
 	json.limits @game['limits']
 	json.pushes @game['pushes']
 	json.cashed @game['cashed']
+	json.stamps @game['stamps']
 end

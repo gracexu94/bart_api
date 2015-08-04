@@ -45,10 +45,11 @@ describe "Games API" do
           "seed": 15, 
           "playerID": "TESTPLAYER1", 
           "gamenumber": 1, 
-          "scoreramp": "TESTING", 
+          "ramp": "TESTING", 
           "limits": [0,1,2,3,4,5,6,7,8,9], 
           "pushes": [0,1,2,3,4,5,6,7,8,9], 
-          "cashed": [true,true,false,false,true,true,false,false,true,true]
+          "cashed": [true,true,false,false,true,true,false,false,true,true],
+          "stamps": [9089,9248,9400,9560,9712,9882,10032,10800,10960,11104,11264,11432,11576,11736,12616,12776]
         }
       }.to_json
 

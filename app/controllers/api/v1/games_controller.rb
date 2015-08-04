@@ -61,7 +61,7 @@ module Api
         end
 
         def game_params
-          params.require(:game).permit(:score, :min, :max, :turkID, :SLA, :avg, :norm, :timestart, :timefinish, :duration, :seed, :playerID, :gamenumber, :scoreramp, limits: [], pushes: [], cashed: [])
+          params.require(:game).permit(:score, :min, :max, :turkID, :SLA, :avg, :norm, :timestart, :timefinish, :duration, :seed, :playerID, :gamenumber, :ramp, limits: [], pushes: [], cashed: [], stamps: [])
         end
     end
   end
