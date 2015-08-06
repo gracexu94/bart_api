@@ -4,6 +4,8 @@ A simple implementation of a JSON API in Rails.
 
 Basic authentication required. 
 
+Live @[bart-game.herokuapp.com](http://bart-game.herokuapp.com)
+
 ##HOW TO USE 
 
 Currently supported: GET (/api/v1/games or /api/v1/games/game_id) and POST (/api/v1/games)   
@@ -66,7 +68,8 @@ curl -X POST -u "user:password" -H "Accept: application/json" -H "Content-Type: 
       "ramp": "TESTING", 
       "limits": [0,1,2,3,4,5,6,7,8,9], 
       "pushes": [0,1,2,3,4,5,6,7,8,9], 
-      "cashed": [true,true,false,false,true,true,false,false,true,true]
+      "cashed": [true,true,false,false,true,true,false,false,true,true],
+      "stamps": [4594,4740,4892,5068,5253,5428,5572,5732,5884,6039]
     }
 }' 'http://localhost:3000/api/v1/games'
 ```
